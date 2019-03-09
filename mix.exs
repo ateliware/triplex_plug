@@ -26,7 +26,8 @@ defmodule TriplexPlug.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug, "~> 1.7"}
+      {:plug, "~> 1.7"},
+      {:triplex, "~> 1.3.0-rc.1"}
     ]
   end
 end
