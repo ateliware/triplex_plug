@@ -15,13 +15,12 @@ defmodule TriplexPlug.SubdomainPlug do
   alias Plug.Conn
 
   alias TriplexPlug.SubdomainPlugConfig
-  alias TriplexPlug.Plug
 
   @doc false
   def init(opts), do: struct(SubdomainPlugConfig, opts)
 
   @doc false
-  def call(conn, config), do: Plug.put_tenant(conn, get_subdomain(conn, config), config)
+  def call(conn, config), do: TriplexPlug.put_tenant(conn, get_subdomain(conn, config), config)
 
   defp get_subdomain(_conn, %SubdomainPlugConfig{endpoint: nil}) do
     nil

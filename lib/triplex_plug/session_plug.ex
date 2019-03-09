@@ -15,13 +15,12 @@ defmodule TriplexPlug.SessionPlug do
   alias Plug.Conn
 
   alias TriplexPlug.SessionPlugConfig
-  alias TriplexPlug.Plug
 
   @doc false
   def init(opts), do: struct(SessionPlugConfig, opts)
 
   @doc false
   def call(conn, config) do
-    Plug.put_tenant(conn, Conn.get_session(conn, config.session), config)
+    TriplexPlug.put_tenant(conn, Conn.get_session(conn, config.session), config)
   end
 end

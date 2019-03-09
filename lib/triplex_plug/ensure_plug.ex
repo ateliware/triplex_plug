@@ -12,11 +12,10 @@ defmodule TriplexPlug.EnsurePlug do
   """
 
   alias TriplexPlug.EnsurePlugConfig
-  alias TriplexPlug.Plug
 
   @doc false
   def init(opts), do: struct(EnsurePlugConfig, opts)
 
   @doc false
-  def call(conn, config), do: Plug.ensure_tenant(conn, config)
+  def call(conn, config), do: TriplexPlug.ensure_tenant(conn, config)
 end

@@ -13,13 +13,12 @@ defmodule TriplexPlug.ParamPlug do
   """
 
   alias TriplexPlug.ParamPlugConfig
-  alias TriplexPlug.Plug
 
   @doc false
   def init(opts), do: struct(ParamPlugConfig, opts)
 
   @doc false
-  def call(conn, config), do: Plug.put_tenant(conn, get_param(conn, config), config)
+  def call(conn, config), do: TriplexPlug.put_tenant(conn, get_param(conn, config), config)
 
   defp get_param(conn, %ParamPlugConfig{param: key}),
     do: get_param(conn, key)
